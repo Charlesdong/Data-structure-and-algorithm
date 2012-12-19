@@ -83,6 +83,7 @@ BTree * delete_from_tree(int n, BTree *T)
     else if(n < T->data)
         T->left = delete_from_tree(n, T->left);
     else{
+        printf("%d\n", T->data);
         if(T->left && T->right){
             Temp = find_min_tree(T->right);        
             T->data = Temp->data;
@@ -109,15 +110,16 @@ void inorder_traversal(BTree *T)
 }
 int main(int argc, const char *argv[])
 {
-    BTree *root, *max, *min;
+    BTree *root, *max, *min, *T;
     
     root = create_tree(root);
-    inorder_traversal(root); 
+    //inorder_traversal(root); 
     //max = find_max_tree(root);
     //min = find_min_tree(root);
     //printf("max data is : %d, min data is : %d\n", max->data, min->data);
 
     //inorder_traversal(insert_to_tree(5, root));
  
+    T = delete_from_tree(5, root);
     return 0;
 }
