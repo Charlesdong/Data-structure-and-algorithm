@@ -9,18 +9,18 @@ from Queue import Queue
 
 def writeQ(queue):
     print "product a object for Q ..."
-    queue.put('xxx', timeout=1)
+    queue.put('xxx')
     print "product done", queue.qsize()
 
 def readQ(queue):
     print "get a object from Q ..."
-    result = queue.get(timeout=1)
+    result = queue.get()
     print "get done", queue.qsize()
 
 def writer(queue, loops):
     for i in range(loops):
         writeQ(queue)
-    sleep(randint(1,3))
+    sleep(randint(3,6))
 
 def reader(queue, loops):
     for i in range(loops):
@@ -32,7 +32,7 @@ nfuncs = range(len(funcs))
 
 def main():
     nloops = randint(2,5)
-    q = Queue(32)
+    q = Queue(4)
 
     threads = []
     for i in nfuncs:
