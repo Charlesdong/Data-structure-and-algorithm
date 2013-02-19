@@ -1,4 +1,3 @@
-#!/usr/bin/python
 
 def first_test(aList):
     """Just for max sub list O(N^3)"""

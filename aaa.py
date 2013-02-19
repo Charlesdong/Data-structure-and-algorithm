@@ -1,17 +1,11 @@
 #!/usr/bin/python
 
-def isequal(line, key):
-    l = line.split()
-    for i,value in enumerate(l):
-        if i != 1 and value == key:
-            l.remove(value)
-    return ' '.join(l)
-            
-    
-with open("aaa.txt", "r") as f:
-    lines = f.readlines()
+def Feb(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        yield b
+        a, b = b, a + b 
+        n = n + 1
 
-    new_lines = map(isequal, lines, [key.split()[1] for key in lines])
-
-with open('aaa.txt', "w") as f:
-    f.writelines('\n'.join(new_lines))
+f = Feb(5)
+f.next()
